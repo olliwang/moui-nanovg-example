@@ -1,0 +1,3 @@
+[submodule "deps/moui"]
+	path = deps/moui
+	url = git@github.com:ollix/moui.git
