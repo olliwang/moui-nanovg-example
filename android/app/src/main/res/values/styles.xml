@@ -1,0 +1,10 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme"
+        parent="android:Theme.Holo.Light.NoActionBar.Fullscreen">
+        <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/backgroundColor</item>
+    </style>
+
+</resources>

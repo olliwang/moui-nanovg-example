@@ -38,38 +38,38 @@ int loadDemoData(NVGcontext* context, DemoData* data, std::string& directory) {
     return -1;
 
   for (i = 0; i < 12; i++) {
-    char file[256];
-    snprintf(file, 256, "%s/example/images/image%d.jpg", directory.c_str(),
+    char path[256];
+    snprintf(path, 256, "%s/example/images/image%d.jpg", directory.c_str(),
              i + 1);
-    data->images[i] = nvgCreateImage(context, file, 0);
+    data->images[i] = moui::nvgCreateImageAtPath(context, path, 0);
     if (data->images[i] == 0) {
-      printf("Could not load %s.\n", file);
+      MO_LOG("Could not load %s.\n", path);
       return -1;
     }
   }
 
   std::string font_path = directory + "/example/entypo.ttf";
-  data->fontIcons = nvgCreateFont(context, "icons", font_path.c_str());
+  data->fontIcons = moui::nvgCreateFontAtPath(context, "icons", font_path);
   if (data->fontIcons == -1) {
-    printf("Could not add font icons.\n");
+    MO_LOG("Could not add font icons.\n");
     return -1;
   }
   font_path = directory + "/example/Roboto-Regular.ttf";
-  data->fontNormal = nvgCreateFont(context, "sans", font_path.c_str());
+  data->fontNormal = moui::nvgCreateFontAtPath(context, "sans", font_path);
   if (data->fontNormal == -1) {
-    printf("Could not add font italic.\n");
+    MO_LOG("Could not add font italic.\n");
     return -1;
   }
   font_path = directory + "/example/Roboto-Bold.ttf";
-  data->fontBold = nvgCreateFont(context, "sans-bold", font_path.c_str());
+  data->fontBold = moui::nvgCreateFontAtPath(context, "sans-bold", font_path);
   if (data->fontBold == -1) {
-    printf("Could not add font bold.\n");
+    MO_LOG("Could not add font bold.\n");
     return -1;
   }
   font_path = directory + "/example/NotoEmoji-Regular.ttf";
-  data->fontEmoji = nvgCreateFont(context, "emoji", font_path.c_str());
+  data->fontEmoji = moui::nvgCreateFontAtPath(context, "emoji", font_path);
   if (data->fontEmoji == -1) {
-    printf("Could not add font emoji.\n");
+    MO_LOG("Could not add font emoji.\n");
     return -1;
   }
   nvgAddFallbackFontId(context, data->fontNormal, data->fontEmoji);

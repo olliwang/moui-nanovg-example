@@ -21,15 +21,16 @@
 // ---
 // Author: olliwang@ollix.com (Olli Wang)
 
+#include <jni.h>
+
 #include "moui/moui.h"
 
-#include "app/application.h"
+extern "C" {
 
-void moui_main() {
-  static app::Application* application = nullptr;
-  if (application != nullptr)
-    return;
-
-  application = new app::Application();
-  application->RegisterMainApplication();
+JNIEXPORT void
+JNICALL
+Java_com_ollix_nanovg_MainActivity_inithMouiAppFromJNI(JNIEnv *env, jobject) {
+  moui_main();
 }
+
+}  // extern "C"

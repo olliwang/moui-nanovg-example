@@ -21,45 +21,8 @@
 # ---
 # Author: olliwang@ollix.com (Olli Wang)
 
-{
-  'includes': [
-    '../common.gypi'
-  ],
-  'targets': [
-    {
-      'target_name': 'libapp',
-      'type': 'static_library',
-      'dependencies': [
-        '../deps/moui/moui/moui.gyp:libmoui',
-      ],
-      'export_dependent_settings': [
-        '../deps/moui/moui/moui.gyp:libmoui',
-      ],
-      'sources': [
-        '../deps/GLFW/glfw3.c',
-        '../deps/moui/moui/deps/nanovg/example/demo.c',
-        '../deps/moui/moui/deps/nanovg/example/perf.c',
-        'application.cc',
-        'demo_view.cc',
-        'main.cc',
-      ],
-      'include_dirs': [
-        '..',
-        '../deps/',
-      ],
-      'variables': {
-        'resources': [
-          '../deps/moui/moui/deps/nanovg/example/',
-        ],
-      },
-      'direct_dependent_settings': {
-        'mac_bundle_resources': [  # for Mac and iOS
-          '<@(resources)',
-        ],
-      },
-      'xcode_settings': {
-        'SKIP_INSTALL': 'YES',
-      },  # xcode_settings
-    }
-  ]
-}
+cmake_minimum_required(VERSION 3.4.1)
+
+add_library(app-jni SHARED "src/main/cpp/jni.cc")
+add_subdirectory("../../app" "app")
+target_link_libraries(app-jni PRIVATE app )
