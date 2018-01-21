@@ -37,10 +37,10 @@ target_include_directories(app
     ".."
     "../deps")
 
-if(DEFINED ANDROID_PLATFORM)
+if(ANDROID)
     add_subdirectory("../deps/moui/android" "moui-jni")
-    target_link_libraries(app PUBLIC moui-jni )
+    target_link_libraries(app PUBLIC moui-jni)
 else()
     add_subdirectory("../deps/moui/moui" "moui")
-    target_link_libraries(app PUBLIC moui )
+    target_link_libraries(app PUBLIC moui)
 endif()

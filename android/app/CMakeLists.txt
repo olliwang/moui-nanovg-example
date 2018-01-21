@@ -25,4 +25,4 @@ cmake_minimum_required(VERSION 3.4.1)
 
 add_library(app-jni SHARED "src/main/cpp/jni.cc")
 add_subdirectory("../../app" "app")
-target_link_libraries(app-jni PRIVATE app )
+target_link_libraries(app-jni PRIVATE app)
