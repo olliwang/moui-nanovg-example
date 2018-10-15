@@ -27,12 +27,16 @@
 package com.ollix.nanovg
 
 import android.app.Activity
+import android.content.res.AssetManager
 import android.os.Bundle
 import android.view.View
 import android.widget.RelativeLayout
+
+import androidx.fragment.app.FragmentActivity
+
 import com.ollix.moui.MouiFragment
 
-class MainActivity : Activity() {
+class MainActivity : FragmentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,16 +47,22 @@ class MainActivity : Activity() {
         setContentView(rootView)
 
         /** Initializes the moui app. */
-        inithMouiAppFromJNI()
+        inithMouiAppFromJNI(this, assets)
 
         /** Adds moui fragment to show the UI of the moui app. */
-        val fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(rootView.id, MouiFragment());
-        fragmentTransaction.commit();
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+        fragmentTransaction.add(rootView.id, MouiFragment())
+        fragmentTransaction.commit()
     }
 
-    /** Executes `moui_main()`. */
-    external fun inithMouiAppFromJNI()
+    override fun onDestroy() {
+        deleteApplicationFromJNI()
+    }
+
+    /** JNI methods. */
+    external fun inithMouiAppFromJNI(activity: Activity,
+                                     assetManager: AssetManager)
+    external fun deleteApplicationFromJNI()
 
     /** Loads native libraries. */
     companion object {

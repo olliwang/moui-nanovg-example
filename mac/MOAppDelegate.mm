@@ -37,7 +37,7 @@
   // Initializes and launches the moui application.
   moui_main();
   _app = moui::Application::GetMainApplication();
-  _app->OnLaunch();
+  _app->LaunchUserInterface();
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {

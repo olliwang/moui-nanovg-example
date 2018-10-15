@@ -29,8 +29,21 @@ extern "C" {
 
 JNIEXPORT void
 JNICALL
-Java_com_ollix_nanovg_MainActivity_inithMouiAppFromJNI(JNIEnv *env, jobject) {
+Java_com_ollix_nanovg_MainActivity_inithMouiAppFromJNI(
+    JNIEnv *env, jobject, jobject activity, jobject asset_manager) {
+  moui::Application::InitJNI(env, activity, asset_manager);
   moui_main();
+}
+
+JNIEXPORT void
+JNICALL
+Java_com_ollix_nanovg_MainActivity_deleteApplicationFromJNI(
+    JNIEnv *env, jobject) {
+  auto moui_app = moui::Application::GetMainApplication();
+  if (moui_app != nullptr) {
+    delete moui_app;
+  }
+  moui::Application::ResetMainApplication();
 }
 
 }  // extern "C"

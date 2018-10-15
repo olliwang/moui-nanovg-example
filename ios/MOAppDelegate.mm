@@ -43,7 +43,7 @@
   // Initializes and launches the moui application.
   moui_main();  // defined in `app/main.cc`.
   _app = moui::Application::GetMainApplication();
-  _app->OnLaunch();
+  _app->LaunchUserInterface();
 
   return YES;
 }

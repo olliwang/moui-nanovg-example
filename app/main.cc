@@ -25,11 +25,11 @@
 
 #include "app/application.h"
 
-void moui_main() {
-  static app::Application* application = nullptr;
-  if (application != nullptr)
-    return;
 
-  application = new app::Application();
-  application->RegisterMainApplication();
+void moui_main() {
+  auto application = moui::Application::GetMainApplication();
+  if (application == nullptr) {
+    auto application = new app::Application();
+    application->RegisterMainApplication();
+  }
 }

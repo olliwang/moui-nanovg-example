@@ -33,13 +33,26 @@ Application::Application() : demo_view_(nullptr), widget_view_(nullptr) {
 }
 
 Application::~Application() {
-  if (demo_view_ != nullptr)
-    delete demo_view_;
-  if (widget_view_ != nullptr)
-    delete widget_view_;
+  DestroyUserInterface();
 }
 
-void Application::OnLaunch() {
+void Application::DestroyUserInterface() {
+  if (demo_view_ != nullptr) {
+    moui::Widget::SmartRelease(demo_view_);
+    demo_view_ = nullptr;
+  }
+  if (widget_view_ != nullptr) {
+    widget_view_->RemoveFromSuperview();
+    delete widget_view_;
+    widget_view_ = nullptr;
+  }
+}
+
+void Application::LaunchUserInterface() {
+  if (widget_view_ != nullptr) {
+    return;
+  }
+
   auto window = moui::Window::GetMainWindow();
   auto native_root_view = window->GetRootView();
 

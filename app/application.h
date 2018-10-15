@@ -36,7 +36,10 @@ class Application : public moui::Application {
   ~Application();
 
   // Inherited from `moui::Application` class.
-  void OnLaunch() final;
+  void DestroyUserInterface() final;
+
+  // Inherited from `moui::Application` class.
+  void LaunchUserInterface() final;
 
  private:
   moui::WidgetView* widget_view_;

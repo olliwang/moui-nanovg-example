@@ -20,5 +20,5 @@ and run the demo app.
 
 ## Build the Android target
 
-The `android` directory is the root of a normal Android Studio 3.0 project configured with Gradle and CMake build system. Thus you can simply build and
+The `android` directory is the root of a normal Android Studio 3.2 project configured with Gradle and CMake build system. Thus you can simply build and
 run the app in Android Studio or through command line.
