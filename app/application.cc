@@ -57,7 +57,11 @@ void Application::LaunchUserInterface() {
   auto native_root_view = window->GetRootView();
 
   // Creates a `WidgetView` object and adds it to the native root view.
-  widget_view_ = new moui::WidgetView();
+  // Creates the root widget view.
+  const int kContextFlags = moui::nvgContextFlags(true,  // antialias
+                                                  false,  // stencil strokes
+                                                  3);  // triple buffering
+  widget_view_ = new moui::WidgetView(kContextFlags);
   widget_view_->SetBounds(0, 0, native_root_view->GetWidth(),
                           native_root_view->GetHeight());
   native_root_view->AddSubview(widget_view_);
