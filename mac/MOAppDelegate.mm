@@ -32,7 +32,6 @@
 - (void)applicationWillFinishLaunching:(NSNotification *)aNotification {
   // Registers the main window.
   moui::Window::RegisterMainNativeHandle((__bridge void*)_window);
-  _window.contentViewController.view.autoresizesSubviews = YES;
 
   // Initializes and launches the moui application.
   moui_main();

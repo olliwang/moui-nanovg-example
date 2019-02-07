@@ -64,6 +64,8 @@ void Application::LaunchUserInterface() {
 
   // Creates a root widget and adds it to the widget view.
   demo_view_ = new DemoView();
+  widget_view_->root_widget()->set_background_color(nvgRGBf(0, 0, 0));
+  widget_view_->root_widget()->set_is_opaque(true);
   widget_view_->root_widget()->AddChild(demo_view_);
   demo_view_->StartAnimation();
 }
