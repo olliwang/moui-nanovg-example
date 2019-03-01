@@ -21,7 +21,7 @@
 # ---
 # Author: olliwang@ollix.com (Olli Wang)
 
-cmake_minimum_required(VERSION 3.4.1)
+cmake_minimum_required(VERSION 3.10.2)
 
 add_library(app-jni SHARED "src/main/cpp/jni.cc")
 add_subdirectory("../../app" "app")
