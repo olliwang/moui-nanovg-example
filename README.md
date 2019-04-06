@@ -20,4 +20,4 @@ and run the demo app.
 
 ## Build the Android target
 
-The `android` directory is the root of a normal Android Studio 3.3.1 project configured with Gradle and CMake build system. Thus you can simply build and run the app in Android Studio or through CLI. Please note that NDK r18 is required and NDK r19+ does not support.
+The `android` directory is the root of a normal Android Studio 3.3.2 project configured with Gradle and CMake build system. Thus you can simply build and run the app in Android Studio or through CLI. Please note that NDK r18 is required and NDK r19+ does not support.
