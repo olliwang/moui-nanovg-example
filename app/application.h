@@ -42,8 +42,8 @@ class Application : public moui::Application {
   void LaunchUserInterface() final;
 
  private:
-  moui::WidgetView* widget_view_;
   DemoView* demo_view_;
+  moui::WidgetView* widget_view_;
 };
 
 }  // namespace monvg
