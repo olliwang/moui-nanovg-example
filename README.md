@@ -2,6 +2,11 @@
 
 This project demonstrates how to build a cross-platform [moui](https://github.com/ollix/moui) app that runs [NanoVG](https://github.com/memononen/nanovg)'s demo. Currently, this project implements iOS, macOS, and Android targets. The iOS and macOS targets adopt Apple's Metal as NanoVG's backend, while the Android target uses the default OpenGL backend.
 
+### Donation
+If you found this project useful, please consider donating to show your support ❤️ 
+
+[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3366Q3AVUJLTQ)
+
 ## Generate Xcode projects
 
 A moui app uses [CMake](https://cmake.org) to generate the Xcode project for
